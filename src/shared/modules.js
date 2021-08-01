@@ -5,7 +5,8 @@ export const MODULES = [
     image: "/assets/images/react-lake.jpg",
     elevation: 1233,
     featured: false,
-    description: "Description of module one will go in this space",
+    description:
+      "Description of module 1 will go in this space,Description of module 1 will go in this space,Description of module 1 will go in this space",
   },
   {
     id: 1,
@@ -14,7 +15,7 @@ export const MODULES = [
     elevation: 877,
     featured: false,
     description:
-      "Spend a few sunny days and starry nights beneath a canopy of old-growth firs at this enchanting spot by the Chrome River.",
+      "Description of module 2 will go in this space,Description of module 2 will go in this space,Description of module 2 will go in this space",
   },
   {
     id: 2,
@@ -23,7 +24,7 @@ export const MODULES = [
     elevation: 2901,
     featured: false,
     description:
-      "Let NuCamp be your guide to this off-the-beaten-path, hike-in-only campground.",
+      "Description of module 3 will go in this space,Description of module 3 will go in this space,Description of module 3 will go in this space",
   },
   {
     id: 3,
@@ -32,6 +33,6 @@ export const MODULES = [
     elevation: 42,
     featured: true,
     description:
-      "You'll never want to leave this hidden gem, deep within the lush Redux Woods.",
+      "Description of module 4 will go in this space,Description of module 4 will go in this space,Description of module 4 will go in this space",
   },
 ];
