@@ -1,36 +1,42 @@
 import React, { Component } from "react";
 import Directory from "./DirectoryComponent";
 import ModuleInfo from "./ModuleInfoComponent";
-import { MODULES } from "../shared/modules";
-import { View } from "react-native";
+import Constants from "expo-constants";
+import { View, Platform } from "react-native";
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from "react-navigation";
+
+const DirectoryNavigator = createStackNavigator(
+  {
+    Directory: { screen: Directory },
+    ModuleInfo: { screen: ModuleInfo },
+  },
+  {
+    initialRouteName: "Directory",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#6FAFEA",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+
+const AppNavigator = createAppContainer(DirectoryNavigator);
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modules: MODULES,
-      selectedModule: null,
-    };
-  }
-
-  onModuleSelect(moduleId) {
-    this.setState({ selectedModule: moduleId });
-  }
-
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Directory
-          modules={this.state.modules}
-          onPress={(moduleId) => this.onModuleSelect(moduleId)}
-        />
-        <ModuleInfo
-          module={
-            this.state.modules.filter(
-              (module) => module.id === this.state.selectedModule
-            )[0]
-          }
-        />
+      <View
+        style={{
+          flex: 1,
+          paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
+        }}
+      >
+        <AppNavigator />
       </View>
     );
   }
