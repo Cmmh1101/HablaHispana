@@ -1,4 +1,4 @@
-export const UNIT_1 = [
+export const LESSONS = [
   {
     id: 0,
     name: "Lesson 1: title of leson one",

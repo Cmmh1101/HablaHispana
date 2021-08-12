@@ -7,6 +7,7 @@ import { View, Platform } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createAppContainer } from "react-navigation";
+import Lessons from "./LessonsComponent";
 
 const DirectoryNavigator = createStackNavigator(
   {
@@ -32,6 +33,24 @@ const HomeNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Home",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#6FAFEA",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+const UnitInfoNavigator = createStackNavigator(
+  {
+    UnitInfo: { screen: UnitInfo },
+    Lessons: { screen: Lessons },
+  },
+  {
+    initialRouteName: "UnitInfo",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "#6FAFEA",

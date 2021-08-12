@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { Card } from "react-native-elements";
 import { UNITS } from "../shared/units";
+import { LESSONS } from "../shared/unit_1_lessons";
 
-function RenderUnit({ unit }) {
-  if (unit) {
+function RenderUnit({ lesson }) {
+  if (lesson) {
     return (
       <Card
-        featuredTitle={unit.name}
+        featuredTitle={lesson.name}
         image={require("./images/react-lake.jpg")}
       >
-        <Text style={{ margin: 10 }}>{unit.lessons}</Text>
+        <Text style={{ margin: 10 }}>{lesson.name}</Text>
       </Card>
     );
   }
@@ -22,17 +23,25 @@ class UnitInfo extends Component {
     super(props);
     this.state = {
       units: UNITS,
+      lessons: LESSONS,
     };
   }
 
   static navigationOptions = {
-    title: "Units Information",
+    title: "Unit Information",
   };
 
   render() {
-    const unitId = this.props.navigation.getParam("unitId");
-    const unit = this.state.units.filter((unit) => unit.id === unitId)[0];
-    return <RenderUnit unit={unit} />;
+    const lessonId = this.props.navigation.getParam("lessonId");
+    const lesson = this.state.lessons.filter(
+      (lesson) => lesson.id === lessonId
+    )[0];
+
+    return (
+      <View>
+        <RenderUnit lesson={lesson} />
+      </View>
+    );
   }
 }
 
